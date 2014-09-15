@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<QuestionForm xmlns="http://mechanicalturk.amazonaws.com/AWSMechanicalTurkDataSchemas/2005-10-01/QuestionForm.xsd">
+    <Overview>
+        <Title>Identify which activity is happening in an image</Title>
+        <!-- Here's the image file to be tagged -->
+        <Text>What kind of activity is happening in the room?</Text>
+        <FormattedContent><![CDATA[
+        <img src="${image_url}" alt="If you cannot see this image, please RETURN the HIT."/>
+    ]]></FormattedContent>
+    </Overview>
+
+    <Question>
+      <QuestionIdentifier>category</QuestionIdentifier>
+      <QuestionContent><Text>Category:</Text></QuestionContent>
+      <AnswerSpecification>
+        <SelectionAnswer>
+          <MinSelectionCount>1</MinSelectionCount>
+          <StyleSuggestion>radiobutton</StyleSuggestion>
+          <Selections>
+            #set ( $categories = [ "Empty","Meeting","Lecture","Study","Others" ] )
+            #foreach ( $category in $categories )
+                <Selection>
+                  <SelectionIdentifier>$category</SelectionIdentifier>
+                  <Text>$category</Text>
+                </Selection>
+                #end
+          </Selections>
+        </SelectionAnswer>
+      </AnswerSpecification>
+    </Question>
+    <Question>
+      <QuestionIdentifier>others</QuestionIdentifier>
+      <QuestionContent><Text>If you choose "Others", please write down the name of activity.</Text></QuestionContent>
+        <AnswerSpecification>
+          <FreeTextAnswer>
+          </FreeTextAnswer>
+        </AnswerSpecification>
+    </Question>
+</QuestionForm>
+
