@@ -18,6 +18,7 @@
 - sh generateResultsSummary.sh (generate xxx.summary)
 
 ####How to get report from xxx.results or xxx.summary?
-- python check_result.py xxx.results (only generate result.txt)
+- python check_result.py xxx.results (only generate result.txt) <br/>
   python check_result.py xxx.reaults true (generate result.txt and mturk_labels.txt)
+
 - python check_summary.py xxx.summary (generate summary.txt)
